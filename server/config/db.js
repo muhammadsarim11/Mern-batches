@@ -4,7 +4,7 @@ import mongoose from "mongoose"
 export const ConnectDb = async()=>{
 
 try {
-        await mongoose.connect("mongodb://localhost:27017/testing")
+        await mongoose.connect("mongodb://localhost:27017/")
             console.log("db connected")
        
     

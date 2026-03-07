@@ -25,3 +25,26 @@ res.status(200).json({
 })
 
 }
+
+
+export const GetTodo = async (req,res) => {
+
+    const todos = await todo.find()
+
+res.status(200).json({
+    todos
+})
+
+}
+
+export const DeleteTodo = async(req,res)=>{
+    const {id} = req.params
+
+await todo.deleteOne({
+    _id:id
+})
+
+res.status(200).json({
+    "message":"deleted"
+})
+}

@@ -1,12 +1,13 @@
 import express from 'express'
-import { CreateTodo } from '../controller/todo.controller.js'
+import { CreateTodo, DeleteTodo, GetTodo } from '../controller/todo.controller.js'
 
 
 const router = express.Router()
 
 
 router.post("/create",CreateTodo)
-
+router.get("/get",GetTodo)
+router.delete("/delete/:id",DeleteTodo)
 
 
 
