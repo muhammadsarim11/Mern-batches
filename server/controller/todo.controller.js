@@ -45,6 +45,8 @@ export const EditTodo = async (req,res)=>{
 }
 
 
+
+
 export const GetTodo = async(req,res)=>{
 
     const todos = await todo.find()
@@ -52,5 +54,16 @@ export const GetTodo = async(req,res)=>{
     res.status(200).json({
         message:"success",
         todos
+    })
+}
+
+
+
+export const DeleteTodo = async(req,res)=>{
+    const {id} = req.params
+    const deletedTodo = await todo.findByIdAndDelete(id)
+    res.status(200).json({
+        message:"success",
+        deletedTodo
     })
 }
