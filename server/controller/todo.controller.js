@@ -25,3 +25,32 @@ res.status(200).json({
 })
 
 }
+
+export const EditTodo = async (req,res)=>{
+
+    const {id} = req.params
+    const {title,description} = req.body
+
+    if(!title || !description){
+            return res.status(404).json({
+                message:"fill all field!"
+            })
+        }
+    const updatedTodo = await todo.findByIdAndUpdate(id, { title, description }, { new: true })
+
+    res.status(200).json({
+        message: "Todo updated successfully",
+        todo: updatedTodo
+    })
+}
+
+
+export const GetTodo = async(req,res)=>{
+
+    const todos = await todo.find()
+
+    res.status(200).json({
+        message:"success",
+        todos
+    })
+}
